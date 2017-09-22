@@ -1,17 +1,7 @@
-// start game button//
-// clear() button // 
-// create timer to 30 seconds//
-// print to screen//
-// count down to 0 seconds//
-// when 0 seconds end game
-// count correct answers
-// count incorrect answers
-// count unanswered answers
-
 $(document).ready(function() {
     // global variables
     // variable to start the clock timer
-    var counter = 10;
+    var counter = 30;
 
     // used to store radio buttons 
     var correct = 0;
@@ -139,86 +129,86 @@ $(document).ready(function() {
                     if ($('#question-div input').is(':checked')) {
                         value = $('input[name=radio-one]:checked', '#question-div').val();
 
-                        // if value == 
+                        // if value == question.answer then add to correct var
                         if (value == questionOne.answer) {
                             correct++;
                         }
+
+                        // if != question.answer then add to incorrect var
                         if (value == 0 || value == 2 || value == 3) {
                             incorrect++;
                         }
-                    	}
-                    	if (value == undefined) {
-                        	unanswered++;
-                    	}
+                    }
+                    // if no answer was selected then add to unanswered var
+                    if (value == undefined) {
+                        unanswered++;
+                    }
 
                     if ($('#question-div input').is(':checked')) {
                         value = $('input[name=radio-two]:checked', '#question-div').val();
 
-                        // if value == 
                         if (value == questionTwo.answer) {
                             correct++;
                         }
                         if (value == 1 || value == 2 || value == 3) {
                             incorrect++;
                         }
-                    	}
-                    	if (value == undefined) {
-                        	unanswered++;
-                    	}
+                    }
+                    if (value == undefined) {
+                        unanswered++;
+                    }
 
                     if ($('#question-div input').is(':checked')) {
                         value = $('input[name=radio-three]:checked', '#question-div').val();
 
-                        // if value == 
                         if (value == questionThree.answer) {
                             correct++;
                         }
                         if (value == 1 || value == 2 || value == 0) {
                             incorrect++;
                         }
-                    	}
-                    	if (value == undefined) {
-                        	unanswered++;
-                    	}
+                    }
+                    if (value == undefined) {
+                        unanswered++;
+                    }
 
                     if ($('#question-div input').is(':checked')) {
                         value = $('input[name=radio-four]:checked', '#question-div').val();
 
-                        // if value == 
                         if (value == questionFour.answer) {
                             correct++;
                         }
                         if (value == 0 || value == 2 || value == 3) {
                             incorrect++;
                         }
-                    	}
-                    	if (value == undefined) {
-                        	unanswered++;
-                    	}
+                    }
+                    if (value == undefined) {
+                        unanswered++;
+                    }
 
                     if ($('#question-div input').is(':checked')) {
                         value = $('input[name=radio-five]:checked', '#question-div').val();
 
-                        // if value == 
                         if (value == questionFive.answer) {
                             correct++;
                         }
                         if (value == 1 || value == 2 || value == 3) {
                             incorrect++;
                         }
-                    	}
-                    	if (value == undefined) {
-                        	unanswered++;
-                    	}
-                    
-                    
+                    }
+                    if (value == undefined) {
+                        unanswered++;
+                    }
+
+                    // empty question div when timer hits zero
                     $('#question-div').empty();
 
+                    // create new div and append correct, incorrect, and unanswered vars
                     $('<h3>Correct ' + correct + '</h3>').appendTo('#end-game-div');
                     $('<h3>Incorrect ' + incorrect + '</h3>').appendTo('#end-game-div');
                     $('<h3>Unanswered ' + unanswered + '</h3>').appendTo('#end-game-div');
                 }
             },
-            1000)
+            1000) // timer counts down every second
     })
 })
